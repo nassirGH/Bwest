@@ -30,12 +30,15 @@ class DefaultHeader extends Component {
         {/* <AppSidebarToggler className="d-md-down-none" display="lg" /> */}
 
         <Nav className="d-md-down-none" navbar>
-        <NavItem className="px-3">
-            <Link to="" className="nav-link">Products</Link>
-          </NavItem>
+
           <NavItem className="px-3">
-            <NavLink to="" className="nav-link" >Add Product</NavLink>
+            <Link to="/Products" className="nav-link">Products</Link>
           </NavItem>
+
+          <NavItem className="px-3">
+            <Link to="/AddProduct" className="nav-link">Add Product</Link>
+          </NavItem>
+
           <NavItem className="px-3">
             <Link to="" className="nav-link">Add testimonies</Link>
           </NavItem>
@@ -43,6 +46,7 @@ class DefaultHeader extends Component {
           <NavItem className="px-3">
             <Link to="/Users" className="nav-link">Owners</Link>
           </NavItem>
+
           <NavItem className="px-3">
             <Link to="" className="nav-link">Search</Link>
           </NavItem>
@@ -57,9 +61,9 @@ class DefaultHeader extends Component {
               <img src={'../../assets/img/avatars/index.png'} className="img-avatar" alt="admin@bootstrapmaster.com" />
             </DropdownToggle>
             <DropdownMenu right>
-              <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
+              {/* <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
              <DropdownItem header tag="div" className="text-center"><strong>Settings</strong></DropdownItem>
-              <DropdownItem><i className="fa fa-user"></i> Profile</DropdownItem>
+              <DropdownItem><i className="fa fa-user"></i> Profile</DropdownItem> */}
               
           
              

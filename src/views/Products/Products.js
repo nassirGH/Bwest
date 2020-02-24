@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
-import usersData from './UsersData'
+import productsData from './ProductsData'
 
-function UserRow(props) {
-  const user = props.user
-  const userLink = `/users/${user.id}`;
+function ProductRow(props) {
   
+  const product = props.product
+  const productLink = `/products/${product.id}`
 
   const getBadge = (status) => {
     return status === 'Active' ? 'success' :
@@ -18,21 +18,24 @@ function UserRow(props) {
   }
 
   return (
-    <tr key={user.id.toString()}>
-      <th scope="row"><Link to={userLink}>{user.id}</Link></th>
-      <td><Link to={userLink}>{user.user}</Link></td>
-      <td>{user.product}</td>
-      <td>{user.price}</td>
-      <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td>
+    <tr key={product.id.toString()}>
+      <th scope="row"><Link to={productLink}>{product.id}</Link></th>
+      <td><Link to={productLink}>{product.ownername}</Link></td>
+      <td>{product.prodname}</td>
+      <td>{product.prodprice}</td> 
+      <td>{product.prodamount}</td>
+      <td>{product.prodseason}</td>
+
+      <td><Link to={productLink}><Badge color={getBadge(product.status)}>{product.status}</Badge></Link></td>
     </tr>
   )
 }
 
-class Users extends Component {
+class Products extends Component {
 
   render() {
 
-    const userList = usersData.filter((user) => user.id < 10)
+    const productList = productsData.filter((product) => product.id < 10)
 
     return (
       <div className="animated fadeIn">
@@ -40,7 +43,7 @@ class Users extends Component {
           <Col xl={6}>
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> Users <small className="text-muted">table</small>
+                <i className="fa fa-align-justify"></i> Products <small className="text-muted">table</small>
               </CardHeader>
               <CardBody>
                 <Table responsive hover>
@@ -50,12 +53,14 @@ class Users extends Component {
                       <th scope="col">owner name</th>
                       <th scope="col">product name</th>
                       <th scope="col">product price</th>
-                      <th scope="col">status</th>
+                      <th scope="col">product amount</th>
+                      <th scope="col">product season</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
-                    {userList.map((user, index) =>
-                      <UserRow key={index} user={user}/>
+                    {productList.map((product, index) =>
+                      <ProductRow key={index} product={product}/>
                     )}
                   </tbody>
                 </Table>
@@ -68,4 +73,4 @@ class Users extends Component {
   }
 }
 
-export default Users;
+export default Products;
